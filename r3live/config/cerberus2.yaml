@@ -1,0 +1,44 @@
+Lidar_front_end:
+   lidar_type: 2   # 1 for Livox-avia, 3 for Ouster-OS1-64
+   N_SCANS: 16
+   using_raw_point: 1
+   point_step: 3
+   blind: 1
+   
+r3live_common:
+   if_dump_log: 1                   # If recording ESIKF update log. [default = 0]
+   record_offline_map: 0            # If recording offline map. [default = 1]
+   pub_pt_minimum_views: 3          # Publish points which have been render up to "pub_pt_minimum_views" time. [default = 3]
+   minimum_pts_size: 0.01           # The minimum distance for every two points in Global map (unit in meter). [default = 0.01] 
+   image_downsample_ratio: 1        # The downsample ratio of the input image. [default = 1]
+   estimate_i2c_extrinsic: 0       # If enable estimate the extrinsic between camera and IMU. [default = 1] 
+   estimate_intrinsic: 0            # If enable estimate the online intrinsic calibration of the camera lens. [default = 1] 
+   maximum_vio_tracked_pts: 600     # The maximum points for tracking. [default = 600]
+   append_global_map_point_step: 4  # The point step of append point to global map. [default = 4]
+
+r3live_vio:
+   image_width: 720
+   image_height: 540
+   camera_intrinsic:
+      [350.4753654456, 0.0, 375.609030533, 0.0, 350.3589687465, 279.1048548603, 0.0, 0.0, 1.0]  
+   camera_dist_coeffs: [-0.0436716079, 0.0054433184, -0.005698747, 0.0012933061, 0. ]  #k1, k2, p1, p2, k3
+   # Fine extrinsic value. form camera-LiDAR calibration.
+   camera_ext_R: [ 0.9998   , 0.0145 ,  -0.0101 ,
+                    0.0101 ,   0.0039  ,  0.9999 ,
+                    0.0146 ,  -0.9999   , 0.0037]
+   # camera_ext_t: [0.050166, 0.0474116, -0.0312415] 
+   camera_ext_t: [0.0511, -0.1926, 0.6542]
+   
+r3live_lio:        
+   lio_update_point_step: 2   # Point step used for LIO update.  
+   max_iteration: 10           # Maximum times of LIO esikf.
+   lidar_time_delay: 0  # The time-offset between LiDAR and IMU, provided by user. 
+   filter_size_corner: 0.2 
+   filter_size_surf: 0.3
+   filter_size_surf_z: 0.2
+   filter_size_map: 0.30
+   lidar_imu_rotm:
+      [ -1.0000 ,   0.0001  ,  0.0063 ,
+          -0.0000  , -1.0000   , 0.0059 ,
+              0.0063 ,   0.0059  ,  1.0000 ] 
+   lidar_imu_t: [ -0.0096,  0.6116, -0.1031]
