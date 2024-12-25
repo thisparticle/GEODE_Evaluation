@@ -1,0 +1,31 @@
+<launch>
+    <!-- Lidar odometry param -->
+    <rosparam file="$(find lvi_sam)/config/bob_lidar.yaml" command="load" />
+    <!-- VINS config -->
+    <param name="vins_config_file" type="string" value="$(find lvi_sam)/config/bob_camera.yaml" />
+    <!-- Image conversion -->
+    <!-- <node pkg="image_transport" type="republish" name="republish" args="compressed in:=/camera/color/image_raw raw out:=/camera/color/image_raw" output="screen" respawn="true" /> -->
+
+
+    <!--- Robot State TF -->
+    <include file="$(find lvi_sam)/launch/include/module_robot_state_publisher.launch" />
+    <!--- Run Rviz-->
+    <include file="$(find lvi_sam)/launch/include/module_rviz.launch" />
+    <!--- SAM -->
+    <include file="$(find lvi_sam)/launch/include/module_sam.launch" />
+
+
+    <!-- Image conversion -->
+    <node pkg="image_transport" type="republish" name="lvi_republish" args="compressed in:=//left_camera/image out:=/camera/image_raw" output="screen" respawn="true"/>
+
+    <!-- run bag -->
+    <arg name="bag_file_use" default="true" />
+    <arg name="bag_file" default="/data/bags/S3E-Degeneration-Dataset/metro_tunnel/bob/Tunneling_tunnel7_bob_rect.bag" />
+
+
+    <param name="use_sim_time" value="true" />
+    <group if="$(arg bag_file_use)">
+        <node pkg="rosbag" type="play" name="rosbag" 
+            args="--clock -r 1 -s 0 $(arg bag_file)" required="true"/>    
+    </group>    
+</launch>
