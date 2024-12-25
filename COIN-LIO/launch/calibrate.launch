@@ -1,0 +1,15 @@
+<launch>
+
+    <!-- <arg name="bag_file" default="/media/thisparticle/WD_BLACK/S3E-Degeneration-Dataset/Stairs/stairs_bob.bag"/> -->
+    <arg name="bag_file" default="/data/bags/S3E-Degeneration-Dataset/metro_tunnel/bob/Shield_tunnel7_bob_rect.bag" />
+    <arg name="metadata_file" default="$(find coin_lio)/config/metadata_geode.json"/>
+    <arg name="point_topic" default="/ouster/points"/>
+
+    <rosparam file="$(arg metadata_file)" command="load"/>
+    <param name="bag_path" type="string" value="$(arg bag_file)"/>
+    <param name="topic" type="string" value="$(arg point_topic)"/>
+    <param name="n_skip" type="int" value="10" />
+    <param name="n_total" type="int" value="500" />
+
+    <node pkg="coin_lio" type="coin_lio_calibration" name="calib" output="screen" />
+</launch>

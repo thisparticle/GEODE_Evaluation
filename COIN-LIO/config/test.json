@@ -1,0 +1,84 @@
+metadata: "{\n    \"beam_intrinsics\": \n    {\n        \"beam_altitude_angles\": \n       \
+  \ [\n            20.5,\n            19.89,\n            19.24,\n            18.62,\n\
+  \            17.98,\n            17.33,\n            16.67,\n            16.04,\n\
+  \            15.36,\n            14.72,\n            14.03,\n            13.38,\n\
+  \            12.7,\n            12.03,\n            11.35,\n            10.68,\n\
+  \            9.99,\n            9.3,\n            8.59,\n            7.92,\n   \
+  \         7.21,\n            6.53,\n            5.82,\n            5.13,\n     \
+  \       4.43,\n            3.73,\n            3.03,\n            2.32,\n       \
+  \     1.62,\n            0.91,\n            0.19,\n            -0.5,\n         \
+  \   -1.21,\n            -1.91,\n            -2.61,\n            -3.33,\n       \
+  \     -4.01,\n            -4.74,\n            -5.43,\n            -6.12,\n     \
+  \       -6.83,\n            -7.52,\n            -8.21,\n            -8.9,\n    \
+  \        -9.59,\n            -10.27,\n            -10.95,\n            -11.65,\n\
+  \            -12.31,\n            -13,\n            -13.66,\n            -14.32,\n\
+  \            -14.99,\n            -15.64,\n            -16.3,\n            -16.95,\n\
+  \            -17.59,\n            -18.24,\n            -18.87,\n            -19.52,\n\
+  \            -20.13,\n            -20.75,\n            -21.36,\n            -21.97\n\
+  \        ],\n        \"beam_azimuth_angles\": \n        [\n            1.4,\n  \
+  \          -4.23,\n            1.4,\n            -4.24,\n            1.4,\n    \
+  \        -4.23,\n            1.4,\n            -4.22,\n            1.39,\n     \
+  \       -4.22,\n            1.39,\n            -4.22,\n            1.4,\n      \
+  \      -4.22,\n            1.41,\n            -4.21,\n            1.41,\n      \
+  \      -4.22,\n            1.4,\n            -4.22,\n            1.39,\n       \
+  \     -4.21,\n            1.4,\n            -4.22,\n            1.41,\n        \
+  \    -4.22,\n            1.41,\n            -4.22,\n            1.41,\n        \
+  \    -4.22,\n            1.4,\n            -4.21,\n            1.41,\n         \
+  \   -4.21,\n            1.41,\n            -4.22,\n            1.41,\n         \
+  \   -4.22,\n            1.4,\n            -4.21,\n            1.4,\n           \
+  \ -4.21,\n            1.41,\n            -4.21,\n            1.41,\n           \
+  \ -4.21,\n            1.41,\n            -4.22,\n            1.41,\n           \
+  \ -4.22,\n            1.4,\n            -4.21,\n            1.4,\n            -4.21,\n\
+  \            1.41,\n            -4.21,\n            1.41,\n            -4.22,\n\
+  \            1.41,\n            -4.22,\n            1.39,\n            -4.22,\n\
+  \            1.4,\n            -4.22\n        ],\n        \"lidar_origin_to_beam_origin_mm\"\
+  : 15.806\n    },\n    \"calibration_status\": \n    {\n        \"reflectivity\"\
+  : \n        {\n            \"timestamp\": \"2022-04-22T20:47:18\",\n           \
+  \ \"valid\": true\n        }\n    },\n    \"config_params\": \n    {\n        \"\
+  azimuth_window\": \n        [\n            0,\n            360000\n        ],\n\
+  \        \"columns_per_packet\": 16,\n        \"lidar_mode\": \"1024x10\",\n   \
+  \     \"multipurpose_io_mode\": \"OFF\",\n        \"nmea_baud_rate\": \"BAUD_9600\"\
+  ,\n        \"nmea_ignore_valid_char\": 0,\n        \"nmea_in_polarity\": \"ACTIVE_HIGH\"\
+  ,\n        \"nmea_leap_seconds\": 0,\n        \"operating_mode\": \"NORMAL\",\n\
+  \        \"phase_lock_enable\": false,\n        \"phase_lock_offset\": 0,\n    \
+  \    \"signal_multiplier\": 1,\n        \"sync_pulse_in_polarity\": \"ACTIVE_HIGH\"\
+  ,\n        \"sync_pulse_out_angle\": 360,\n        \"sync_pulse_out_frequency\"\
+  : 1,\n        \"sync_pulse_out_polarity\": \"ACTIVE_HIGH\",\n        \"sync_pulse_out_pulse_width\"\
+  : 10,\n        \"timestamp_mode\": \"TIME_FROM_INTERNAL_OSC\",\n        \"udp_dest\"\
+  : \"169.254.101.223\",\n        \"udp_port_imu\": 33977,\n        \"udp_port_lidar\"\
+  : 52422,\n        \"udp_profile_imu\": \"LEGACY\",\n        \"udp_profile_lidar\"\
+  : \"LEGACY\"\n    },\n    \"imu_intrinsics\": \n    {\n        \"imu_to_sensor_transform\"\
+  : \n        [\n            1,\n            0,\n            0,\n            6.253,\n\
+  \            0,\n            1,\n            0,\n            -11.775,\n        \
+  \    0,\n            0,\n            1,\n            7.645,\n            0,\n  \
+  \          0,\n            0,\n            1\n        ]\n    },\n    \"lidar_data_format\"\
+  : \n    {\n        \"column_window\": \n        [\n            0,\n            1023\n\
+  \        ],\n        \"columns_per_frame\": 1024,\n        \"columns_per_packet\"\
+  : 16,\n        \"pixel_shift_by_row\": \n        [\n            4,\n           \
+  \ -12,\n            4,\n            -12,\n            4,\n            -12,\n   \
+  \         4,\n            -12,\n            4,\n            -12,\n            4,\n\
+  \            -12,\n            4,\n            -12,\n            4,\n          \
+  \  -12,\n            4,\n            -12,\n            4,\n            -12,\n  \
+  \          4,\n            -12,\n            4,\n            -12,\n            4,\n\
+  \            -12,\n            4,\n            -12,\n            4,\n          \
+  \  -12,\n            4,\n            -12,\n            4,\n            -12,\n  \
+  \          4,\n            -12,\n            4,\n            -12,\n            4,\n\
+  \            -12,\n            4,\n            -12,\n            4,\n          \
+  \  -12,\n            4,\n            -12,\n            4,\n            -12,\n  \
+  \          4,\n            -12,\n            4,\n            -12,\n            4,\n\
+  \            -12,\n            4,\n            -12,\n            4,\n          \
+  \  -12,\n            4,\n            -12,\n            4,\n            -12,\n  \
+  \          4,\n            -12\n        ],\n        \"pixels_per_column\": 64,\n\
+  \        \"udp_profile_imu\": \"LEGACY\",\n        \"udp_profile_lidar\": \"LEGACY\"\
+  \n    },\n    \"lidar_intrinsics\": \n    {\n        \"lidar_to_sensor_transform\"\
+  : \n        [\n            -1,\n            0,\n            0,\n            0,\n\
+  \            0,\n            -1,\n            0,\n            0,\n            0,\n\
+  \            0,\n            1,\n            36.18,\n            0,\n          \
+  \  0,\n            0,\n            1\n        ]\n    },\n    \"ouster-sdk\": \n\
+  \    {\n        \"client_version\": \"ouster_client 0.10.0\",\n        \"output_source\"\
+  : \"collect_metadata\"\n    },\n    \"sensor_info\": \n    {\n        \"build_date\"\
+  : \"2022-09-21T17:47:45Z\",\n        \"build_rev\": \"v2.4.0\",\n        \"image_rev\"\
+  : \"ousteros-image-prod-aries-v2.4.0+20220921174636\",\n        \"initialization_id\"\
+  : 7109745,\n        \"prod_line\": \"OS-1-64-U02\",\n        \"prod_pn\": \"840-103575-06\"\
+  ,\n        \"prod_sn\": \"122215001285\",\n        \"status\": \"RUNNING\"\n   \
+  \ }\n}"

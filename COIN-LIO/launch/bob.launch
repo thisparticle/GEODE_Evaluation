@@ -1,0 +1,25 @@
+<launch>
+    <arg name="rviz" default="true" />
+    <arg name="bag_file_use" default="true" />
+    <arg name="bag_file" default="/data/bags/S3E-Degeneration-Dataset/metro_tunnel/bob/Shield_tunnel7_bob_rect.bag" />
+
+    <rosparam file="$(find coin_lio)/config/bob.yaml" command="load"/>
+    <rosparam file="$(find coin_lio)/config/line_removal.yaml" command="load"/>
+    <rosparam file="$(find coin_lio)/config/metadata_geode.json" command="load"/>
+
+    <param name="common/lid_topic" type="string" value="/ouster/points"/>
+    <param name="common/imu_topic" type="string" value="/imu/data"/>
+    <param name="image/u_shift" type="int" value="-4"/>
+
+    <node pkg="coin_lio" type="coin_lio_mapping" name="laserMapping" output="screen" launch-prefix=""/>
+
+    <group if="$(arg rviz)">
+     <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find coin_lio)/rviz_cfg/coinlio_viz.rviz" />
+    </group>
+
+    <param name="use_sim_time" value="true" />
+    <group if="$(arg bag_file_use)">
+        <node pkg="rosbag" type="play" name="rosbag" 
+            args="--clock -r 1 -d 0 -s 0 $(arg bag_file)" required="true"/>    
+    </group>    
+</launch>
