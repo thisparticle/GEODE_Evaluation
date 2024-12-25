@@ -1,0 +1,2 @@
+python3 test_s3e_de.py -sequence=Urban_Tunnel -program=mc_test -start_idx=0 -end_idx=3 -mc_trials=5 & sleep 10s;
+python3 test_s3e_de.py -sequence=Bridge -program=mc_test -start_idx=0 -end_idx=3 -mc_trials=5 & sleep 10s;
