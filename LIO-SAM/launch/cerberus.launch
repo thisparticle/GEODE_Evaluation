@@ -1,0 +1,27 @@
+<launch>
+
+    <arg name="project" default="lio_sam"/>
+    
+    <!-- Parameters -->
+    <rosparam file="$(find lio_sam)/config/cerberus2.yaml" command="load" />
+
+    <!--- LOAM -->
+    <include file="$(find lio_sam)/launch/include/module_loam.launch" />
+
+    <!--- Robot State TF -->
+    <include file="$(find lio_sam)/launch/include/module_robot_state_publisher.launch" />
+
+    <!--- Run Navsat -->
+    <include file="$(find lio_sam)/launch/include/module_navsat.launch" />
+
+    <!--- Run Rviz-->
+    <include file="$(find lio_sam)/launch/include/module_rviz.launch" />
+
+    <arg name="bag_name" value="/data/bags/cerberus/anymal_2_2/2021-09-23-16-28-04_anymal-chimera_mission_raw_sensors.bag"/>
+    <!-- <arg name="bag_name" value="/data/bags/cerberus/anymal_1/2021-09-23-16-31-51_anymal-cerberus_mission_raw_sensors.bag"/> -->
+    <!-- <arg name="bag_name" value="/data/bags/cerberus/anymal_3/2021-09-23-16-41-57_anymal-caiman_mission_raw_sensors.bag"/> -->
+    <!-- <arg name="bag_name" value="/data/bags/cerberus/anymal_4/2021-09-23-16-38-09_anymal-camel_mission_raw_sensors.bag"/> -->
+
+    <node pkg="rosbag" type="play" name="rosbag" args="-r 1.0 /lidar/packets:=velodyne_packets -s 0 --clock $(arg bag_name)"/>
+
+</launch>

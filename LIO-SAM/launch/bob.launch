@@ -1,0 +1,31 @@
+<launch>
+
+    <arg name="project" default="lio_sam"/>
+    
+    <!-- Parameters -->
+    <rosparam file="$(find lio_sam)/config/bob.yaml" command="load" />
+
+    <!--- LOAM -->
+    <include file="$(find lio_sam)/launch/include/module_loam.launch" />
+
+    <!--- Robot State TF -->
+    <include file="$(find lio_sam)/launch/include/module_robot_state_publisher.launch" />
+
+    <!--- Run Navsat -->
+    <include file="$(find lio_sam)/launch/include/module_navsat.launch" />
+
+    <!--- Run Rviz-->
+    <include file="$(find lio_sam)/launch/include/module_rviz.launch" />
+
+
+    <!-- run bag -->
+    <arg name="bag_file_use" default="true" />
+    <arg name="bag_file" default="/data/bags/S3E-Degeneration-Dataset/runway/alpha.bag" />
+
+    <param name="use_sim_time" value="true" />
+    <group if="$(arg bag_file_use)">
+        <node pkg="rosbag" type="play" name="rosbag" 
+            args="--clock -r 1 $(arg bag_file)" required="true"/>    
+    </group>   
+
+</launch>

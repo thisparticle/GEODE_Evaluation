@@ -1,0 +1,24 @@
+<launch>
+
+    <arg name="project" default="lio_sam"/>
+    
+    <!-- Parameters -->
+    <rosparam file="$(find lio_sam)/config/s3e3.yaml" command="load" />
+
+    <!--- LOAM -->
+    <include file="$(find lio_sam)/launch/include/module_loam.launch" />
+
+    <!--- Robot State TF -->
+    <include file="$(find lio_sam)/launch/include/module_robot_state_publisher.launch" />
+
+    <!--- Run Navsat -->
+    <include file="$(find lio_sam)/launch/include/module_navsat.launch" />
+
+    <!--- Run Rviz-->
+    <include file="$(find lio_sam)/launch/include/module_rviz.launch" />
+
+    <arg name="bag_name" value="/data/bags/S3E-Degeneration-Dataset/Inland_Waterways/Inland_Waterways_Short_Alpha.bag"/>
+
+    <node pkg="rosbag" type="play" name="rosbag" args="-r 1.0 /Carol/imu/data:=/imu/data /Carol/velodyne_points:=/velodyne_points -s 0  $(arg bag_name)"/>
+
+</launch>
