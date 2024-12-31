@@ -1,0 +1,47 @@
+feature_extract_enable : 0
+point_filter_num : 1
+max_iteration : 10
+dense_map_enable : 1
+filter_size_surf : 0.2 # 0.3
+filter_size_map : 0.3 # 0.4
+cube_side_length : 20 
+debug : 1
+grid_size : 40
+patch_size : 8
+img_enable : 1
+lidar_enable : 1
+outlier_threshold : 50
+ncc_en: true
+ncc_thre: 1
+img_point_cov : 1000
+laser_point_cov : 0.001
+cam_fx: 1.174433772943354e+03
+cam_fy: 1.174477432586343e+03
+cam_cx: 6.020977604990142e+02
+cam_cy: 5.062372585153649e+02
+
+common:
+    lid_topic:  "/livox/lidar"
+    imu_topic:  "/imu/data"
+
+preprocess:
+    lidar_type: 1  # Ouster
+    scan_line: 6
+    blind: 0.5 # blind x m disable
+
+mapping:
+    acc_cov_scale: 100 #10
+    gyr_cov_scale: 10000 #10
+    fov_degree:    180
+    extrinsic_T: [ 0.049258,-0.012500, 0.026946]
+    extrinsic_R: [0.999620,  0.027463,  0.002445, 
+                  -0.027517,  0.999299,  0.025398, 
+                  -0.001746, -0.025456,  0.999674 ] 
+
+camera:
+    img_topic: /left_camera 
+    # NTU_VIRAL
+    Rcl: [ 0.0305, -0.9995,    -0.0076, 
+              0.0105,  0.0080, -0.9999, 
+              0.9995, 0.0304,     0.0107 ]
+    Pcl: [ -0.1243, -0.0443, -0.1509]
