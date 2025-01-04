@@ -2,6 +2,7 @@
     "files.associations": {
         "core": "cpp",
         "numericaldiff": "cpp",
-        "specialfunctions": "cpp"
+        "specialfunctions": "cpp",
+        "thread": "cpp"
     }
 }
